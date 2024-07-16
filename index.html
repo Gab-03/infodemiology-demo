@@ -546,7 +546,7 @@
             
 
             async function fetchData(region) {
-                const response = await fetch('../static/output/' + region + ".csv");
+                const response = await fetch(region + ".csv");
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
                 }
@@ -927,13 +927,13 @@
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="../static/logos/admu.png" alt="Company Logo">
+                <img src="logos/admu.png" alt="Company Logo">
             </div>
             <div class="footer-logo">
-                <img src="../static/logos/DOH_LOGO.png" alt="Company Logo">
+                <img src="DOH_LOGO.png" alt="Company Logo">
             </div>
             <div  class="footer-logo">
-                <img id="fassster" src="../static/logos/fassster_logo.png" alt="Company Logo">
+                <img id="fassster" src="assster_logo.png" alt="Company Logo">
             </div>
             <div class="footer-content">
                 <div class="footer-column">
@@ -957,10 +957,10 @@
                 <div class="footer-column">
                     <h3>Follow Us</h3>
                     <div class="social-icons">
-                        <a href="#"><img src="../static/logos/fb.png" alt="Facebook"></a>
-                        <a href="#"><img src="../static/logos/twitter.png" alt="Twitter"></a>
-                        <a href="#"><img src="../static/logos/linkedin.png" alt="LinkedIn"></a>
-                        <a href="#"><img src="../static/logos/ig.png" alt="Instagram"></a>
+                        <a href="#"><img src="fb.png" alt="Facebook"></a>
+                        <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="ig.png" alt="Instagram"></a>
                     </div>
                 </div>
             </div>
@@ -977,8 +977,6 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0"></script>
     <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3728_RC01/embed_loader.js"></script>
-    <script src="/static/js/map.js"></script>
-    <script src="/static/js/chart.js"></script> 
     <link rel="stylesheet" href="style.css">
 </body>
 </html>
