@@ -17,10 +17,9 @@ regions = ['NCR','01','02','03','4A','4B','05','06','07','08','09','10','11','CA
 
 rcParams['figure.figsize'] = 15, 6
 
-start_date = "2020-02-01"
-end_date = "2020-03-30"
-
 for region in regions:
+  start_date = "2020-02-01"
+  end_date = "2020-03-30"
   data = pd.read_csv('./regional/' + region + '.csv', header=0).fillna(0)
   start_date = data[data["Report_Date"] == start_date].index[0]
   end_date = data[data["Report_Date"] == end_date].index[0]
@@ -28,7 +27,7 @@ for region in regions:
   dateparse = lambda dates: pd.to_datetime(dates, format='%Y-%m-%d')
   # data = pd.read_csv('/content/drive/MyDrive/thesis/regional/NCR.csv', sep=',', parse_dates=['Report_Date'], index_col='Report_Date',date_parser=dateparse)
 
-  data = pd.read_csv('./regional/' + region + '.csv',
+  data = pd.read_csv('./regional/' +region + '.csv',
                     sep=',',
                     parse_dates=['Report_Date'],
                     index_col='Report_Date',
@@ -37,7 +36,7 @@ for region in regions:
 
   train_data, test_data = data[0:int(len(data)*0.30)], data[int(len(data)*0.30):]
 
-  exog = pd.read_csv('./GT/NCR/Feb1_March30_k5-2020 (1).csv', skiprows=[0, 1])
+  exog = pd.read_csv('Feb1_March30_k5-2020 (1).csv', skiprows=[0, 1])
   total_cases = [x for x in data['Total_Cases']]
 
   # Rename columns
@@ -114,7 +113,7 @@ for region in regions:
   exog_data = [x for x in exog_train]
   y = test_arima
 
-  predictions = list()
+  predictions = [x for x in train_arima]
   for i in range(1, len(y)+1):
       # predict
       model = smapi.tsa.arima.ARIMA(endog=history,exog=exog_data, order=best_params)
@@ -149,7 +148,7 @@ for region in regions:
   }
 
 
-  pd.DataFrame(predictions).to_csv("../static/output/"+ regionCodes[region] + '.csv', index=False)
+  pd.DataFrame(predictions).to_csv(regionCodes[region] + '.csv', index=False)
   # report performance
   # print(len(y),len(predictions))
   # mse = mean_squared_error(y, predictions)
