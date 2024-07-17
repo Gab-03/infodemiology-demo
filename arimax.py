@@ -36,7 +36,39 @@ for region in regions:
 
   train_data, test_data = data[0:int(len(data)*0.30)], data[int(len(data)*0.30):]
 
-  exog = pd.read_csv('Feb1_March30_k5-2020 (1).csv', skiprows=[0, 1])
+  if region == "NCR":
+    exog = pd.read_csv('./GT/Feb-March30_2020_MetroManila.csv', skiprows=[0, 1])
+  elif region == "01":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Ilocos.csv', skiprows=[0, 1])
+  elif region == "02":
+    exog = pd.read_csv('./GT/Feb-March30_2020_CagayanValley.csv', skiprows=[0, 1])
+  elif region == "03":
+    exog = pd.read_csv('./GT/Feb-March30_2020_CentralLuzon.csv', skiprows=[0, 1])
+  elif region == "4A":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Calabarzon.csv', skiprows=[0, 1])
+  elif region == "4B":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Mimaropa.csv', skiprows=[0, 1])
+  elif region == "05":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Bicol.csv', skiprows=[0, 1])
+  elif region == "06":
+    exog = pd.read_csv('./GT/Feb-March30_2020_WesternVisayas.csv', skiprows=[0, 1])
+  elif region == "07":
+    exog = pd.read_csv('./GT/Feb-March30_2020_CentralVisayas.csv', skiprows=[0, 1])
+  elif region == "08":
+    exog = pd.read_csv('./GT/Feb-March30_2020_EasternVisayas.csv', skiprows=[0, 1])
+  elif region == "09":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Zamboanga.csv', skiprows=[0, 1])
+  elif region == "10":
+    exog = pd.read_csv('./GT/Feb-March30_2020_NorthernMindanao.csv', skiprows=[0, 1])
+  elif region == "11":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Davao.csv', skiprows=[0, 1])
+  elif region == "CAR":
+    exog = pd.read_csv('./GT/Feb-March30_2020_CAR.csv', skiprows=[0, 1])
+  elif region == "CARAGA":
+    exog = pd.read_csv('./GT/Feb-March30_2020_Caraga.csv', skiprows=[0, 1])
+  elif region == "BARMM":
+    exog = pd.read_csv('./GT/Feb-March30_2020_MetroManila.csv', skiprows=[0, 1])
+
   total_cases = [x for x in data['Total_Cases']]
 
   # Rename columns
