@@ -45,6 +45,32 @@ regions_data["National Capital Region"]["fever"] = 2
 
 print(regions_data["National Capital Region"])  # Output: {'cough': 10, 'flu': 5, 'fever': 2}
 
+from datetime import datetime, timedelta
+import csv
+
+def generate_date_list(start_date, end_date):
+    # Convert string dates to datetime objects
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date = datetime.strptime(end_date, "%Y-%m-%d")
+    
+    # Generate list of dates
+    date_list = []
+    current_date = start_date
+    while current_date <= end_date:
+        date_list.append(current_date.strftime("%Y-%m-%d"))
+        current_date += timedelta(days=1)
+    
+    return date_list
+
+# Example usage
+start_date = "2020-02-01"
+end_date = "2020-03-30"
+date_list = generate_date_list(start_date, end_date)
+
+# Write date_list to a CSV file
+with open('dates.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(date_list)
 
 
 for region in regions:
