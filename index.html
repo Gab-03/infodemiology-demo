@@ -437,7 +437,7 @@
                     // Example: Display the sum in the body of the document
                    
                 })
-        fetch('CALABARZON (Region IV-A)')
+        fetch('CALABARZON (Region IV-A).csv')
                 .then(response => response.text())
                 .then(data => {
                     // Split the text by new lines
@@ -455,7 +455,7 @@
                     // Example: Display the sum in the body of the document
                    
                 })
-        fetch('Bicol Region (Region V))')
+        fetch('Bicol Region (Region V).csv')
                 .then(response => response.text())
                 .then(data => {
                     // Split the text by new lines
@@ -599,7 +599,7 @@
                     // Example: Display the sum in the body of the document
                   
                 })
-        fetch('Zamboanga Peninsula (Region IX)csv')
+        fetch('Zamboanga Peninsula (Region IX).csv')
                 .then(response => response.text())
                 .then(data => {
                     // Split the text by new lines
@@ -1003,6 +1003,9 @@
             ],
                 hoverOffset: 4
             }]
+        
+            
+            
         }
         
         }
@@ -1073,11 +1076,14 @@
                     "Davao Region (Region XI)": sumDavao,
                     "MIMAROPA (Region IV-B)": sumMimaropa,
                     "Zamboanga Peninsula (Region IX)": sumZamboanga,
-                    "Western Visayas (Region VI)": sumWesternVisayas
+                    "Western Visayas (Region VI)": sumWesternVisayas,
+                    "Eastern Visayas (Region VIII)": sumEasternVisayas,
                 };
                 
                 // Example usage
                 console.log(regionSums["NCR"]); // Accessing the sumNCR variable through the dictionary
+
+                console.log("CALABARZON ", sumCalabarzon)
                 
 
                  // Define a color scale from light red to red
