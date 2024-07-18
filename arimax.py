@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 import pandas as pd
 from scipy.stats import pearsonr
 import statsmodels.api as smapi
@@ -16,6 +17,35 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 regions = ['NCR','01','02','03','4A','4B','05','06','07','08','09','10','11','CAR','CARAGA','BARMM']
 
 rcParams['figure.figsize'] = 15, 6
+
+regions_data = {
+    "National Capital Region": {"cough": 0, "flu": 0, "fever": 0},
+    "Region I - Ilocos Region": {"cough": 0, "flu": 0, "fever": 0},
+    "Region II - Cagayan Valley": {"cough": 0, "flu": 0, "fever": 0},
+    "Region III - Central Luzon": {"cough": 0, "flu": 0, "fever": 0},
+    "Region IV-A - CALABARZON": {"cough": 0, "flu": 0, "fever": 0},
+    "Region IV-B - MIMAROPA": {"cough": 0, "flu": 0, "fever": 0},
+    "Region V - Bicol Region": {"cough": 0, "flu": 0, "fever": 0},
+    "Region VI - Western Visayas": {"cough": 0, "flu": 0, "fever": 0},
+    "Region VII - Central Visayas": {"cough": 0, "flu": 0, "fever": 0},
+    "Region VIII - Eastern Visayas": {"cough": 0, "flu": 0, "fever": 0},
+    "Region IX - Zamboanga Peninsula": {"cough": 0, "flu": 0, "fever": 0},
+    "Region X - Northern Mindanao": {"cough": 0, "flu": 0, "fever": 0},
+    "Region XI - Davao Region": {"cough": 0, "flu": 0, "fever": 0},
+    "Region XII - SOCCSKSARGEN": {"cough": 0, "flu": 0, "fever": 0},
+    "Region XIII - Caraga": {"cough": 0, "flu": 0, "fever": 0},
+    "CAR - Cordillera Administrative Region": {"cough": 0, "flu": 0, "fever": 0},
+    "BARMM - Bangsamoro Autonomous Region in Muslim Mindanao": {"cough": 0, "flu": 0, "fever": 0}
+}
+
+# Example of accessing and updating values for a specific region
+regions_data["National Capital Region"]["cough"] = 10
+regions_data["National Capital Region"]["flu"] = 5
+regions_data["National Capital Region"]["fever"] = 2
+
+print(regions_data["National Capital Region"])  # Output: {'cough': 10, 'flu': 5, 'fever': 2}
+
+
 
 for region in regions:
   start_date = "2020-02-01"
@@ -88,6 +118,9 @@ for region in regions:
     a = [int(x) for x in a]
     b = [int(x) for x in b]
     c = [int(x) for x in c]
+    d = [int(x) for x in d]
+    e = [int(x) for x in e]
+
 
     correlation_coefficientA, p_valueA = pearsonr(a, total_cases)
     correlation_coefficientB, p_valueB = pearsonr(b, total_cases)
@@ -101,6 +134,13 @@ for region in regions:
     print("flu: ", correlation_coefficientD)
     print("swab test: ", correlation_coefficientE)
 
+    cough = sum(a) / len(a)
+    fever = sum(b) / len(b)
+    flu = sum(d) / len(d)
+
+    return cough, fever, flu
+
+
   def createRegressor(a,b,c,d,e):
     for x in range(len(a)):
       # regressor.append(( int(c[x]) + int(e[x]))/2)
@@ -108,7 +148,76 @@ for region in regions:
 
   createRegressor(exog1,exog2,exog3,exog4,exog5)
   exog_train, exog_test= [x for x in exog1][0:int(len(data)*0.30)],[x for x in exog1][int(len(data)*0.30):]
-  checkCorr(exog1,exog2,exog3,exog4,exog5)
+
+
+  symptomsRSV = checkCorr(exog1,exog2,exog3,exog4,exog5)
+
+  if region == "NCR":
+    regions_data["National Capital Region"]["cough"] = symptomsRSV[0]
+    regions_data["National Capital Region"]["fever"] = symptomsRSV[1]
+    regions_data["National Capital Region"]["flu"] = symptomsRSV[2]
+  elif region == "01":
+      regions_data["Region I - Ilocos Region"]["cough"] = symptomsRSV[0]
+      regions_data["Region I - Ilocos Region"]["fever"] = symptomsRSV[1]
+      regions_data["Region I - Ilocos Region"]["flu"] = symptomsRSV[2]
+  elif region == "02":
+      regions_data["Region II - Cagayan Valley"]["cough"] = symptomsRSV[0]
+      regions_data["Region II - Cagayan Valley"]["fever"] = symptomsRSV[1]
+      regions_data["Region II - Cagayan Valley"]["flu"] = symptomsRSV[2]
+  elif region == "03":
+      regions_data["Region III - Central Luzon"]["cough"] = symptomsRSV[0]
+      regions_data["Region III - Central Luzon"]["fever"] = symptomsRSV[1]
+      regions_data["Region III - Central Luzon"]["flu"] = symptomsRSV[2]
+  elif region == "4A":
+      regions_data["Region IV-A - CALABARZON"]["cough"] = symptomsRSV[0]
+      regions_data["Region IV-A - CALABARZON"]["fever"] = symptomsRSV[1]
+      regions_data["Region IV-A - CALABARZON"]["flu"] = symptomsRSV[2]
+  elif region == "4B":
+      regions_data["Region IV-B - MIMAROPA"]["cough"] = symptomsRSV[0]
+      regions_data["Region IV-B - MIMAROPA"]["fever"] = symptomsRSV[1]
+      regions_data["Region IV-B - MIMAROPA"]["flu"] = symptomsRSV[2]
+  elif region == "05":
+      regions_data["Region V - Bicol Region"]["cough"] = symptomsRSV[0]
+      regions_data["Region V - Bicol Region"]["fever"] = symptomsRSV[1]
+      regions_data["Region V - Bicol Region"]["flu"] = symptomsRSV[2]
+  elif region == "06":
+      regions_data["Region VI - Western Visayas"]["cough"] = symptomsRSV[0]
+      regions_data["Region VI - Western Visayas"]["fever"] = symptomsRSV[1]
+      regions_data["Region VI - Western Visayas"]["flu"] = symptomsRSV[2]
+  elif region == "07":
+      regions_data["Region VII - Central Visayas"]["cough"] = symptomsRSV[0]
+      regions_data["Region VII - Central Visayas"]["fever"] = symptomsRSV[1]
+      regions_data["Region VII - Central Visayas"]["flu"] = symptomsRSV[2]
+  elif region == "08":
+      regions_data["Region VIII - Eastern Visayas"]["cough"] = symptomsRSV[0]
+      regions_data["Region VIII - Eastern Visayas"]["fever"] = symptomsRSV[1]
+      regions_data["Region VIII - Eastern Visayas"]["flu"] = symptomsRSV[2]
+  elif region == "09":
+      regions_data["Region IX - Zamboanga Peninsula"]["cough"] = symptomsRSV[0]
+      regions_data["Region IX - Zamboanga Peninsula"]["fever"] = symptomsRSV[1]
+      regions_data["Region IX - Zamboanga Peninsula"]["flu"] = symptomsRSV[2]
+  elif region == "10":
+      regions_data["Region X - Northern Mindanao"]["cough"] = symptomsRSV[0]
+      regions_data["Region X - Northern Mindanao"]["fever"] = symptomsRSV[1]
+      regions_data["Region X - Northern Mindanao"]["flu"] = symptomsRSV[2]
+  elif region == "11":
+      regions_data["Region XI - Davao Region"]["cough"] = symptomsRSV[0]
+      regions_data["Region XI - Davao Region"]["fever"] = symptomsRSV[1]
+      regions_data["Region XI - Davao Region"]["flu"] = symptomsRSV[2]
+  elif region == "CAR":
+      regions_data["CAR - Cordillera Administrative Region"]["cough"] = symptomsRSV[0]
+      regions_data["CAR - Cordillera Administrative Region"]["fever"] = symptomsRSV[1]
+      regions_data["CAR - Cordillera Administrative Region"]["flu"] = symptomsRSV[2]
+  elif region == "CARAGA":
+      regions_data["Region XIII - Caraga"]["cough"] = symptomsRSV[0]
+      regions_data["Region XIII - Caraga"]["fever"] = symptomsRSV[1]
+      regions_data["Region XIII - Caraga"]["flu"] = symptomsRSV[2]
+  elif region == "BARMM":
+      regions_data["BARMM - Bangsamoro Autonomous Region in Muslim Mindanao"]["cough"] = symptomsRSV[0]
+      regions_data["BARMM - Bangsamoro Autonomous Region in Muslim Mindanao"]["fever"] = symptomsRSV[1]
+      regions_data["BARMM - Bangsamoro Autonomous Region in Muslim Mindanao"]["flu"] = symptomsRSV[2]
+
+
 
   time_series = data['Total_Cases']
 
@@ -206,3 +315,25 @@ for region in regions:
   # plt.grid(True)
   # plt.savefig('../static/graphs/arimax.png')
   # plt.show()
+
+# Define the path for the CSV file
+csv_file = 'regions_data.csv'
+
+# Define the field names for the CSV headers
+field_names = ['Region', 'cough', 'flu', 'fever']
+
+# Open the CSV file in write mode and write the headers
+with open(csv_file, mode='w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=field_names)
+    writer.writeheader()
+
+    # Write each region's data to the CSV file
+    for region, data in regions_data.items():
+        writer.writerow({
+            'Region': region,
+            'cough': data['cough'],
+            'flu': data['flu'],
+            'fever': data['fever']
+        })
+
+print(f'CSV file "{csv_file}" has been created successfully.')
