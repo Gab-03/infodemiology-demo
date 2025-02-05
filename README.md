@@ -5,39 +5,50 @@ https://gab-03.github.io/infodemiology-demo/
 
 # Infodemiological Disease Surveillance  
 
+Apologies for the confusion! Here’s the entire content in a copy-pasteable format for you:
+
 ## How to Run the Model  
-1. **Clone the repository** – Follow the cloning instructions below.  
-2. **Install dependencies** – Run:  
-   ```bash
-   pip install -r requirements.txt
-   ```  
-3. **Run the ARIMAX model** – Execute:  
-   ```bash
-   python arimax.py
-   ```  
-   This will process and update the data used in the website.  
-4. **Run the server** – Start the server and make changes locally as needed.  
 
-## Data Sources  
-1. **FASSSTER & Ateneo Social Computing Laboratory Collaboration** – The primary COVID-19 case datasets used in this project were obtained through a collaboration between **[FASSSTER]** and the **Ateneo Social Computing Laboratory**. A GitHub repository can be requested from the Ateneo Social Computing Lab for data access.  
+Follow these steps to set up and run the ARIMAX model for COVID-19 forecasting:  
 
-2. **Google Trends Data** – This project leverages **Google Trends** data to collect **Relative Search Volume (RSV)** for COVID-19 symptom-related keywords (e.g., **cough, fever, flu**). Google Trends allows tracking of public interest in symptoms, which can serve as an early indicator of potential outbreaks. You can explore Google Trends data at **[Google Trends](https://trends.google.com/trends/)**.  
+### 1. Clone the Repository  
+First, download the project files to your local machine by cloning the GitHub repository:  
 
-3. **Regional Google Trends Data Extraction** – Google Trends provides an option to obtain data at the **regional level**. This project extracts and downloads **per-region** Google Trends data to correlate search interest in symptoms with actual COVID-19 cases. The extracted data is stored in the **GT Folder**, where you can find the specific keywords used for data collection per region.  
+```bash
+git clone https://github.com/Gab-03/infodemiology-demo.git
 
-## BibTeX Citation  
-If you use this project in your research, please cite it as follows:  
+Navigate into the project folder:
 
-```bibtex
-@misc{infodemiology_2024,
-  author       = {Mon Gabriel Lagustan and Maria Regina Justina E. Estuar},
-  title        = {Infodemiological Disease Surveillance},
-  year         = {2024},
-  version      = {1.0},
-  url          = {https://github.com/Gab-03/mlagustan},
-  institution  = {Ateneo Social Computing Lab},
-  note         = {Available at: \url{https://github.com/Gab-03/mlagustan}}
-}
+cd infodemiology-demo
+
+2. Create a Virtual Environment (Recommended)
+
+To avoid dependency conflicts, create and activate a virtual environment:
+
+On Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+On macOS/Linux:
+
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install Dependencies
+
+Ensure all required Python packages are installed by running:
+
+pip install -r requirements.txt
+
+This installs all necessary libraries, including pmdarima, pandas, numpy, and statsmodels, which are used for time-series forecasting.
+
+4. Run the ARIMAX Model
+
+Execute the script to process and update the COVID-19 case data:
+
+python arimax.py
+
 ```  
 
 ## Files  
