@@ -29,13 +29,14 @@ https://gab-03.github.io/infodemiology-demo/
 If you use this project in your research, please cite it as follows:  
 
 ```bibtex
-@software{Lagustan_2024,
-  author = {Mon Gabriel Lagustan & Dr. Maria Regina Justina E. Estuar},
-  title = {Infodemiological Disease Surveillance},
-  year = {2024},
-  version = {1.0},
-  url = {https://github.com/Gab-03/mlagustan},
-  institution = {Ateneo Social Computing Lab}
+@misc{infodemiology_2024,
+  author       = {Mon Gabriel Lagustan and Maria Regina Justina E. Estuar},
+  title        = {Infodemiological Disease Surveillance},
+  year         = {2024},
+  version      = {1.0},
+  url          = {https://github.com/Gab-03/mlagustan},
+  institution  = {Ateneo Social Computing Lab},
+  note         = {Available at: \url{https://github.com/Gab-03/mlagustan}}
 }
 ```  
 
