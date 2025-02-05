@@ -73,8 +73,6 @@ Infodemiology follows a client-server architecture using Django framework for th
 - **Frontend:** HTML, CSS, JavaScript for user interface.
 - **Data Sources:** Google Trends API, real-time health capacity data.
 
-#### Diagram
-![Architecture Diagram](link_to_your_architecture_diagram)
 
 ## Technologies Used
 ### Backend
