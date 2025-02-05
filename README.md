@@ -5,8 +5,6 @@ https://gab-03.github.io/infodemiology-demo/
 
 # Infodemiological Disease Surveillance  
 
-Apologies for the confusion! Here’s the entire content in a copy-pasteable format for you:
-
 ## How to Run the Model  
 
 Follow these steps to set up and run the ARIMAX model for COVID-19 forecasting:  
