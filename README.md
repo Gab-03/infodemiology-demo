@@ -128,10 +128,6 @@ Open your web browser and navigate to `http://localhost:8000` to view [Your Webs
 
 ---
 
-## Updating Data
+if you have further questions: mon.lagustan@student.ateneo.edu
 
-To update the data files for all regions in the Philippines, use the Python script `arimax.py`. Follow these steps:
-
-1. **Run the script:**
-python3 arimax.py
 
