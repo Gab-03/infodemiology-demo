@@ -137,12 +137,13 @@ If you use this repository in your research, please cite it as:
 You can cite this repository using the following BibTeX entry:
 
 ```bibtex
-@misc{infodemiology_websiteapp2024,
+@misc{infodemiology_website2024,
   author       = {Mon Gabriel Lagustan and Dr. Maria Regina Justina E. Estuar},
   title        = {Infodemiology COVID-19 Website Application},
   year         = {2024},
   url          = {https://github.com/Gab-03/mlagustan},
 }
+```
 
 if you have further questions: mongabriellagustan03@gmail.com
 
