@@ -132,16 +132,14 @@ Open your web browser and navigate to `http://localhost:8000` to view [Your Webs
 
 If you use this repository in your research, please cite it as:
 
-Mon Gabriel Lagustan and Dr. Maria Regina Justina E. Estuar (2024). *mlagustan: Research Code Repository*. GitHub. Retrieved February 11, 2025, from [https://github.com/Gab-03/mlagustan](https://github.com/Gab-03/mlagustan)
-
 ## BibTeX Citation
 
-If you are using LaTeX, you can cite this repository using the following BibTeX entry:
+You can cite this repository using the following BibTeX entry:
 
 ```bibtex
-@misc{lagustan2024,
+@misc{infodemiology_websiteapp2024,
   author       = {Mon Gabriel Lagustan and Dr. Maria Regina Justina E. Estuar},
-  title        = {mlagustan: Research Code Repository},
+  title        = {Infodemiology COVID-19 Website Application},
   year         = {2024},
   url          = {https://github.com/Gab-03/mlagustan},
 }
