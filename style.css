@@ -269,3 +269,16 @@ footer {
 .btn:hover {
     background-color: #45a049; /* Darker green */
 }
+
+body {
+    background: repeating-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(255, 255, 255, 0.1) 0px,
+        transparent 10px,
+        transparent 10px
+    ),
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Ctext x='50%' y='50%' font-size='30' fill='rgba(0, 0, 0, 0.1)' text-anchor='middle' dominant-baseline='middle' transform='rotate(-30, 200, 100)'%3EFor Demo Purposes Only%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 300px 150px;
+}
